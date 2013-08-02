@@ -71,39 +71,14 @@ node default {
   include ruby::2_0_0
 
   # custom modules
-  include ctags
-  include heroku
-  include memcached
-  include redis
   include postgresapp
   include phantomjs::1_9_0
   include imagemagick
-  include iterm2::dev
-  include tmux
-  include gitx
   include xquartz
-  include wget
-  include sublime_text_2
-  include macvim
-  include mou
-  include github_for_mac
-  include caffeine
-  include googledrive
-  include virtualbox
-  include vagrant
-  include vlc
-  include textual
-  include alfred
-  include clipmenu
-  include appcleaner
-  include pckeyboardhack
-  include transmit
-  include skype
-  include chrome
-  include onepassword
-  include firefox
-  include rdio
-  include java
+
+  # Configurations
+  class { 'nodejs::global': version => 'v0.10.0' }
+  class { 'phantomjs::global': version => '1.9.0' }
 
   # common, useful packages
   package {
