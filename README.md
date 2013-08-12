@@ -51,7 +51,7 @@ That's enough to get your boxen into a usable state on other machines, usually.
 ```
 sudo mkdir -p /opt/boxen
 sudo chown ${USER}:staff /opt/boxen
-git clone https://github.com/josemarluedke/my-boxen.git /opt/boxen/repo
+git clone https://github.com/josemarluedke/neighborly-boxen.git /opt/boxen/repo
 cd /opt/boxen/repo
 script/boxen
 ```
