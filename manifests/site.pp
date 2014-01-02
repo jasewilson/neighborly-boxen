@@ -5,7 +5,7 @@ require gcc
 Exec {
   group       => 'staff',
   logoutput   => on_failure,
-  user        => $luser,
+  user        => $boxen_user,
 
   path => [
     "${boxen::config::home}/rbenv/shims",
@@ -20,13 +20,13 @@ Exec {
 
   environment => [
     "HOMEBREW_CACHE=${homebrew::config::cachedir}",
-    "HOME=/Users/${::luser}"
+    "HOME=/Users/${::boxen_user}"
   ]
 }
 
 File {
   group => 'staff',
-  owner => $luser
+  owner => $boxen_user
 }
 
 Package {
@@ -69,6 +69,7 @@ node default {
   # default ruby versions
   include ruby::1_9_3
   include ruby::2_0_0
+  include ruby::2_1_0
 
   # custom modules
   include postgresapp
@@ -79,6 +80,7 @@ node default {
   # Configurations
   class { 'nodejs::global': version => 'v0.10.0' }
   class { 'phantomjs::global': version => '1.9.0' }
+
 
   # common, useful packages
   package {
